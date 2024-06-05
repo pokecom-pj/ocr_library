@@ -121,8 +121,6 @@ class OcrPluginManager: DriverCardOCRDelegate {
     
     // MARK: - Accesser
     func start(parent: UIViewController, delegate: OnOcrPluginManagerDelegate?) {
-        UIApplication.shared.statusBarOrientation = .portrait
-
         mDelegate = delegate
         DriverCardOCR.shared.delegate = self
         DriverCardOCR.shared.parentController = parent
@@ -131,8 +129,6 @@ class OcrPluginManager: DriverCardOCRDelegate {
     
     func stop() {
         mDelegate = nil
-
-        UIApplication.shared.statusBarOrientation = .landscapeLeft
     }
     
     
