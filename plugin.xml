@@ -51,6 +51,7 @@
     <source-file src="src/ios/OcrPlugin.swift" target-dir="BMOcr" />
     <source-file src="src/ios/OcrPluginManager.swift" target-dir="BMOcr" />
     <source-file src="src/ios/OcrViewController.swift" target-dir="BMOcr" />
+    <source-file src="src/ios/OcrViewController.xib" target-dir="BMOcr" />
     <framework src="src/ios/framework/DriverCardOCRLibrary.framework" custom="true" embed="true" />
   </platform>
 
