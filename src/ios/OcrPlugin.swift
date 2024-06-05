@@ -64,11 +64,7 @@ class OcrPlugin : CDVPlugin, OnOcrPluginManagerDelegate {
             }
             return
         }
-        let parent = OcrViewController(nibName: "OcrViewController", bundle: nil)
-        getOcrPluginManager().start(parent: parent, delegate: self)
-        viewController.present(parent, animated: true)
-        
-//        getOcrPluginManager().start(parent: viewController!, delegate: self)
+       getOcrPluginManager().start(parent: viewController!, delegate: self)
     }
     
     private func stopOcr() {
