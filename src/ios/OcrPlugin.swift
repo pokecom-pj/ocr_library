@@ -64,7 +64,8 @@ class OcrPlugin : CDVPlugin, OnOcrPluginManagerDelegate {
             }
             return
         }
-       getOcrPluginManager().start(parent: viewController!, delegate: self)
+        viewController!.modalPresentationStyle = .fullScreen
+        getOcrPluginManager().start(parent: viewController!, delegate: self)
     }
     
     private func stopOcr() {
