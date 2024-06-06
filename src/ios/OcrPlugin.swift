@@ -64,8 +64,17 @@ class OcrPlugin : CDVPlugin, OnOcrPluginManagerDelegate {
             }
             return
         }
-        viewController!.modalPresentationStyle = .fullScreen
-        getOcrPluginManager().start(parent: viewController!, delegate: self)
+        let cdvViewController = self.viewController as? CDVViewController 
+        if (cdvViewController == nil) {
+            if (mOcrCallbackId != nil) {
+                let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: ["errorCode": -1] )
+                pluginResult?.keepCallback = true
+                commandDelegate.send(pluginResult, callbackId: mOcrCallbackId)
+            }
+            return
+        }
+        cdvViewController!.modalPresentationStyle = .fullScreen
+        getOcrPluginManager().start(parent: cdvViewController!, delegate: self)
     }
     
     private func stopOcr() {
