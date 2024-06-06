@@ -73,7 +73,7 @@ class OcrPlugin : CDVPlugin, OnOcrPluginManagerDelegate {
             }
             return
         }
-        cdvViewController!.modalPresentationStyle = .fullScreen
+        cdvViewController!.modalPresentationStyle = .overFullScreen
         getOcrPluginManager().start(parent: cdvViewController!, delegate: self)
     }
     
