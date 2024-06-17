@@ -1,56 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
-<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="cordova-plugin-bm-pocr"
-        version="1.0.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="com.example.myplugin" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>MyPlugin</name>
+    <description>Cordova Plugin using Android AAR library</description>
+    <license>MIT</license>
+    <keywords>cordova, plugin, android, aar</keywords>
+    <repo>https://github.com/example/my-plugin</repo>
+    <issue>https://github.com/example/my-plugin/issues</issue>
+    <engines>
+        <engine name="cordova" version=">=10.0.0" />
+    </engines>
+    
+    <platform name="android">
+        <source-file src="src/android/MyPlugin.java" target-dir="src/main/java/com/example/myplugin" />
+        <framework src="src/android/driver.gradle" custom="true" type="gradleReference" />
 
-  <name>BMOcr</name>
-
-  <engines>
-    <engine name="cordova" version=">=3.4.0"/>
-  </engines>
-
-  <asset src="www/bmpocr.js" target="js/bmpocr.js"/>
-
-  <js-module src="www/bmpocr.js" name="BMOcr">
-    <clobbers target="bmpocr" />
-  </js-module>
-
-  <platform name="android">
-    <config-file target="res/xml/config.xml" parent="/*">
-      <preference name="GradlePluginKotlinEnabled" value="true" />
-      <preference name="GradlePluginKotlinCodeStyle" value="official" />
-      <preference name="GradlePluginKotlinVersion" value="1.7.21" />
-      <preference name="AndroidXEnabled" value="true" />
-      <feature name="OcrPlugin">
-        <param name="android-package" value="jp.bluememe.plugin.ocr.OcrPlugin"/>
-        <param name="onload" value="true" />
-      </feature>
-    </config-file>
-
-
-
-    <hook type="after_prepare" src="src/android/hooks/after_prepare.js"/>
-    <source-file src="src/android/OcrPlugin.java" target-dir="src/jp/bluememe/plugin/ocr/"/>
-    <source-file src="src/android/plugin/OcrPluginManager.java" target-dir="src/jp/bluememe/plugin/ocr/plugin/"/>
-    <source-file src="src/android/plugin/Permission.java" target-dir="src/jp/bluememe/plugin/ocr/plugin/"/>
-    <framework src="src/android/yourfile.gradle" custom="true" type="gradleReference" />
-    <source-file framework="true" src="src/android/libs/DriverCardOCRLibrary.aar" target-dir="libs"/>
-  </platform>
-
-  <platform name="ios">
-    <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
-    <config-file target="config.xml" parent="/widget">
-      <feature name="OcrPlugin">
-        <param name="ios-package" value="OcrPlugin" />
-        <param name="onload" value="true" />
-      </feature>
-    </config-file>
-    <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
-	    <string>カードの認識に使用します。</string>
-    </config-file>
-    <source-file src="src/ios/OcrPlugin.swift" target-dir="BMOcr" />
-    <source-file src="src/ios/OcrPluginManager.swift" target-dir="BMOcr" />
-    <framework src="src/ios/framework/DriverCardOCRLibrary.framework" custom="true" embed="true" />
-  </platform>
-
+        <resource-file src="aar/DriverCardOCRLibrary.aar" target="libs/DriverCardOCRLibrary.aar" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MyPlugin" >
+                <param name="android-package" value="com.example.myplugin.MyPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+    </platform>
+    
+    <js-module src="www/MyPlugin.js" name="MyPlugin">
+        <clobbers target="MyPlugin" />
+    </js-module>
 </plugin>

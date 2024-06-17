@@ -1,12 +1,30 @@
 {
-  "name": "cordova-plugin-bm-pocr",
+  "name": "my-plugin",
   "version": "1.0.0",
-  "description": "BM Plugin",
+  "description": "A Cordova plugin using an Android AAR library",
   "cordova": {
-    "id": "cordova-plugin-bm-pocr",
+    "id": "com.example.myplugin",
     "platforms": [
-      "android",
-      "ios"
+      "android"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/my-plugin.git"
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "android",
+    "aar"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=10.0.0"
+    }
+  ]
 }
+
