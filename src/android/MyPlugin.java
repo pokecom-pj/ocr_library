@@ -18,7 +18,7 @@ public class MyPlugin extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         this.callbackContext = callbackContext;
         if (action.equals("coolMethod")) {
-            String message = args.getString(0);
+            String message = "";
             this.coolMethod(message, callbackContext);
             return true;
         }
