@@ -10,6 +10,7 @@ import jp.co.ip_consulting.drivercardocrlibrary.DriverCardOCR.SCAN_TYPE;
 import android.os.Bundle;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function3;
+import android.util.Log;
 
 public class MyPlugin extends CordovaPlugin {
 
@@ -18,23 +19,26 @@ public class MyPlugin extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         this.callbackContext = callbackContext;
         if (action.equals("coolMethod")) {
-            String message = "";
-            this.coolMethod(message, callbackContext);
+            //String message = args.getString(0);
+            try {
+                this.coolMethod(callbackContext);
+            } catch (Exception e) {
+                Log.e("MyPlugin", "Exception: " + e.getMessage());
+            }
             return true;
         }
         return false;
     }
 
-    private void coolMethod(String message, CallbackContext callbackContext) {
+    private void coolMethod(CallbackContext callbackContext) {
         cordova.setActivityResultCallback(this);
         AppCompatActivity activity = (AppCompatActivity) cordova.getActivity();
         DriverCardOCR.Companion.getShared().doScanCard(activity, new Function3<RESULT, Bundle, SCAN_TYPE, Unit>() {
             @Override
             public Unit invoke(RESULT result, Bundle resultData, SCAN_TYPE scanType) {
                 callbackContext.success("resultData");
-                return null;
+                return Unit.INSTANCE;
             }
         });
     }
 }
-
