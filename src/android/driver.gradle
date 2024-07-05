@@ -1,0 +1,73 @@
+apply plugin: 'kotlin-android'
+repositories{    
+  jcenter()
+  flatDir {
+      dirs 'libs'
+   }
+}
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20'
+    }
+}
+dependencies {
+   implementation(name:'DriverCardOCRLibrary', ext:'aar')
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.7'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.7'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.8.2'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2'
+    implementation 'androidx.fragment:fragment-ktx:1.8.0'
+    implementation 'androidx.activity:activity-ktx:1.9.0'
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.quickbirdstudios:opencv:4.5.2'
+    implementation 'org.pytorch:pytorch_android_torchvision:1.13.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'org.pytorch:pytorch_android:1.13.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'javax.annotation:javax.annotation-api:1.3.2'
+    implementation 'com.google.code.findbugs:jsr305:3.0.0'
+}
+
+android {
+  packagingOptions {
+    exclude 'META-INF/NOTICE'
+    exclude 'META-INF/LICENSE'
+  }
+  dataBinding {
+        enabled = true
+    }
+  defaultConfig {
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+  }
+   packagingOptions {
+        pickFirst '**/*.so'
+        pickFirst 'lib/*/libc++_shared.so'
+        doNotStrip '**/libc++_shared.so'
+        doNotStrip '**/libfbjni.so'
+        doNotStrip '**/libopencv_java4.so'
+        doNotStrip '**/libpytorch_jni.so'
+        doNotStrip '**/libpytorch_nativeapp.so'
+        doNotStrip '**/libpytorch_vision_jni.so'
+        doNotStrip '**/libsqlc-ndk-native-driver.so'
+    }
+}
+configurations.all {
+    resolutionStrategy {
+        force 'javax.annotation:javax.annotation-api:1.3.2'
+    }
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.group == 'javax.annotation') {
+            details.useVersion '1.3.2'
+        }
+    }
+}
