@@ -51,15 +51,16 @@ class OcrPluginManager: DriverCardOCRDelegate {
             case SCAN_TYPE.DriverCard:
             info.mCardType = OcrPluginManager.CARDTYPE_MENKYOSYO
             result.forEach { set in
-                if (set.0.compare("姓名") == .orderedSame) {
-                    info.mName = set.1
-                }
-                if (set.0.compare("住所") == .orderedSame) {
-                    info.mAddress = set.1
-                }
-                if (set.0.compare("生年月日") == .orderedSame) {
-                    info.mBirthdate = set.1.replacingOccurrences(of: "生", with: "")
-                }
+                // if (set.0.compare("姓名") == .orderedSame) {
+                //     info.mName = set.1
+                // }
+                // if (set.0.compare("住所") == .orderedSame) {
+                //     info.mAddress = set.1
+                // }
+                // if (set.0.compare("生年月日") == .orderedSame) {
+                //     info.mBirthdate = set.1.replacingOccurrences(of: "生", with: "")
+                // }
+                info.mName = info.mName + ",(" + set.0 + "," + set.1 + ")"
             }
                 break
             case SCAN_TYPE.ZairyuCard:
