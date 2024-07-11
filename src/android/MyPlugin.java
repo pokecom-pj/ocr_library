@@ -54,42 +54,42 @@ public class MyPlugin extends CordovaPlugin {
         }
         if (scanType == DriverCardOCR.SCAN_TYPE.DriverCard) {
             try {
-                resultJson.put("errorCode", 0);
-                resultJson.put("type", 1);
+                resultJson.put("ErrorCode", 0);
+                resultJson.put("Type", 1);
                 if (resultData.containsKey("姓名")) {
-                    resultJson.put("name", resultData.getString("姓名", ""));
+                    resultJson.put("Name", resultData.getString("姓名", ""));
                 }
                 if (resultData.containsKey("住所")) {
-                    resultJson.put("address", resultData.getString("住所", ""));
+                    resultJson.put("Address", resultData.getString("住所", ""));
                 }
                 if (resultData.containsKey("生年月日")) {
-                    resultJson.put("birthdate", resultData.getString("生年月日", "").replace("生", ""));
+                    resultJson.put("Birthdate", resultData.getString("生年月日", "").replace("生", ""));
                 }
                 resultJson.put("gender", "");
             } catch (JSONException e) {}
         } else if (scanType == DriverCardOCR.SCAN_TYPE.ZairyuCard) {
             try {
-                resultJson.put("errorCode", 0);
-                resultJson.put("type", 3);
+                resultJson.put("ErrorCode", 0);
+                resultJson.put("Type", 3);
                 if (resultData.containsKey("氏名")) {
-                    resultJson.put("name", resultData.getString("氏名", ""));
+                    resultJson.put("Name", resultData.getString("氏名", ""));
                 }
                 if (resultData.containsKey("住所")) {
-                    resultJson.put("address", resultData.getString("住所", ""));
+                    resultJson.put("Address", resultData.getString("住所", ""));
                 }
                 if (resultData.containsKey("生年月日")) {
-                    resultJson.put("birthdate", resultData.getString("生年月日", "").replace("生", ""));
+                    resultJson.put("Birthdate", resultData.getString("生年月日", "").replace("生", ""));
                 }
                 if (resultData.containsKey("性別")) {
-                    resultJson.put("gender", resultData.getString("性別", ""));
+                    resultJson.put("Gender", resultData.getString("性別", ""));
                 }
             } catch (JSONException e) {}
         } else if (scanType == DriverCardOCR.SCAN_TYPE.MyNumberCard) {
             try {
-                resultJson.put("errorCode", 0);
-                resultJson.put("type", 2);
+                resultJson.put("ErrorCode", 0);
+                resultJson.put("Type", 2);
                 if (resultData.containsKey("氏名")) {
-                    resultJson.put("name", resultData.getString("氏名", ""));
+                    resultJson.put("Name", resultData.getString("氏名", ""));
                 }
                 String address = "";
                 if (resultData.containsKey("住所①")) {
@@ -98,12 +98,12 @@ public class MyPlugin extends CordovaPlugin {
                 if (resultData.containsKey("住所②")) {
                     address += resultData.getString("住所②", "");
                 }
-                resultJson.put("address", address);
+                resultJson.put("Address", address);
                 if (resultData.containsKey("生年月日")) {
-                    resultJson.put("birthdate", resultData.getString("生年月日", "").replace("生", ""));
+                    resultJson.put("Birthdate", resultData.getString("生年月日", "").replace("生", ""));
                 }
                 if (resultData.containsKey("性別")) {
-                    resultJson.put("gender", resultData.getString("性別", ""));
+                    resultJson.put("Gender", resultData.getString("性別", ""));
                 }
             } catch (JSONException e) {}
         }

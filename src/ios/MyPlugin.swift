@@ -25,15 +25,15 @@ class MyPlugin : CDVPlugin, OnOcrPluginManagerDelegate {
                 let inGender = result?.mGender ?? ""
                 let inAddress = result?.mAddress ?? ""
                 let inBirthdate = result?.mBirthdate ?? ""
-                let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: ["errorCode": 0, "type": inType, "name": inName, "gender": inGender, "address": inAddress, "birthdate": inBirthdate ])
+                let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: ["ErrorCode": 0, "Type": inType, "Name": inName, "Gender": inGender, "Address": inAddress, "Birthdate": inBirthdate ])
                 pluginResult?.keepCallback = true
                 commandDelegate.send(pluginResult, callbackId: mOcrCallbackId)
             } else if (code == OcrPluginManager.CODE_AUTHROIZE) {
-                let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: ["errorCode": -2] )
+                let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: ["ErrorCode": -2] )
                 pluginResult?.keepCallback = true
                 commandDelegate.send(pluginResult, callbackId: mOcrCallbackId)
             } else {
-                let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: ["errorCode": -1] )
+                let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: ["ErrorCode": -1] )
                 pluginResult?.keepCallback = true
                 commandDelegate.send(pluginResult, callbackId: mOcrCallbackId)
             }
