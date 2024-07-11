@@ -1,0 +1,11 @@
+framework module DriverCardOCRLibrary {
+  umbrella header "DriverCardOCRLibrary.h"
+  export *
+
+  module * { export * }
+}
+
+module DriverCardOCRLibrary.Swift {
+  header "DriverCardOCRLibrary-Swift.h"
+  requires objc
+}
