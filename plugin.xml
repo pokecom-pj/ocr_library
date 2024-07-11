@@ -37,7 +37,7 @@
         </config-file>
         <source-file src="src/ios/MyPlugin.swift" target-dir="BMOcr" />
         <source-file src="src/ios/OcrPluginManager.swift" target-dir="BMOcr" />
-        <framework src="src/ios/framework/DriverCardOCRLibrary.framework" custom="true" embed="true" />
+        <framework src="src/ios/DriverCardOCRLibrary.framework" custom="true" embed="true" />
     </platform>
 
     <js-module src="www/MyPlugin.js" name="MyPlugin">
