@@ -47,7 +47,7 @@ public class MyPlugin extends CordovaPlugin {
         JSONObject resultJson = new JSONObject();
         if (result != DriverCardOCR.RESULT.SUCCESS) {
             try {
-                resultJson.put("errorCode", -1);
+                resultJson.put("ErrorCode", -1);
             } catch (JSONException e) {}
             callbackContext.success(resultJson);
             return;
