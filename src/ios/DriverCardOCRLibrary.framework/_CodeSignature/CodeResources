@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/DriverCardOCRLibrary.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		bjB6PExeWt2tkOZUAC6mznwkH30=
+		EDNzYi2IJhMc26RHO2ag8eNvnSI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -55,6 +55,10 @@
 		<key>drivercardocr_lib_c.a</key>
 		<data>
 		TTrKZyQl9igmMxOpBliBaSXn1+U=
+		</data>
+		<key>fullImage.png</key>
+		<data>
+		TDf4faGOp8Ua4hLQEsZtTS4dZlU=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -126,7 +130,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Et7g53mKoE5a2Cl5Q371hNS0CkZW1AUhi+cnwMI/02I=
+			rCeIdmuKgl7dd3n41gBv5sBBBZJcQ6Ml5Wt59vmEQLA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -141,6 +145,13 @@
 			<key>hash2</key>
 			<data>
 			5T0oW6XoUhheA7dRGfAqp1qA9y2dWHzMaTrJocU+6KQ=
+			</data>
+		</dict>
+		<key>fullImage.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			F06l6vvt+Dhgr3FL50C85YAQmKiIrNIhE8HeGTFE7Wg=
 			</data>
 		</dict>
 	</dict>
