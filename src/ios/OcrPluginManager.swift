@@ -93,7 +93,7 @@ class OcrPluginManager: DriverCardOCRDelegate {
                     if (set.0.compare("住所②") == .orderedSame) {
                         address2 = set.1
                     }
-                    if (set.0.compare("生年月日") == .orderedSame) {
+                    if (set.0.compare("生日") == .orderedSame) {
                         info.mBirthdate = set.1.replacingOccurrences(of: "生", with: "")
                     }
                     if (set.0.compare("性別") == .orderedSame) {
