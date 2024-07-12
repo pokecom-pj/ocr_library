@@ -23,15 +23,9 @@ class MyPlugin : CDVPlugin, OnOcrPluginManagerDelegate {
                 let inType = result?.mCardType ?? 0
                 let inName = result?.mName ?? ""
                 let inGender = result?.mGender ?? ""
-                var inGender2 = "3"
-                if (inGender.compare("男") == .orderedSame) {
-                    inGender2 = "1"
-                } else if (inGender.compare("女") == .orderedSame) {
-                    inGender2 = "2"
-                }
                 let inAddress = result?.mAddress ?? ""
                 let inBirthdate = result?.mBirthdate ?? ""
-                let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: ["ErrorCode": 0, "Type": inType, "Name": inName, "Gender": inGender2, "Address": inAddress, "Birthdate": inBirthdate ])
+                let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: ["ErrorCode": 0, "Type": inType, "Name": inName, "Gender": inGender, "Address": inAddress, "Birthdate": inBirthdate ])
                 pluginResult?.keepCallback = true
                 commandDelegate.send(pluginResult, callbackId: mOcrCallbackId)
             } else if (code == OcrPluginManager.CODE_AUTHROIZE) {
